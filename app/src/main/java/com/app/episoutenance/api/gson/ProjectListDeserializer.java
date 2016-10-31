@@ -1,5 +1,8 @@
 package com.app.episoutenance.api.gson;
 
+import android.databinding.ObservableArrayList;
+import android.databinding.ObservableList;
+
 import com.app.episoutenance.api.models.Project;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -15,12 +18,12 @@ import java.util.ArrayList;
  * Created by banal_a on 30/10/2016.
  */
 
-public class ProjectListDeserializer implements JsonDeserializer<ArrayList<Project>> {
+public class ProjectListDeserializer implements JsonDeserializer<ObservableList<Project>> {
     @Override
-    public ArrayList<Project> deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+    public ObservableList<Project> deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         // Get the "content" element from the parsed JSON
         JsonArray dataSpace = json.getAsJsonObject().getAsJsonArray("projects");
-        ArrayList<Project> myList = new ArrayList<Project>();
+        ObservableList<Project> myList = new ObservableArrayList<>();
         for (JsonElement e : dataSpace)
         {
             myList.add(new Gson().fromJson(e, Project.class));

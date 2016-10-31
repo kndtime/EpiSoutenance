@@ -1,5 +1,8 @@
 package com.app.episoutenance.api.models;
 
+import android.databinding.BaseObservable;
+import android.databinding.Bindable;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -8,12 +11,15 @@ import java.util.ArrayList;
  * Created by banal_a on 30/10/2016.
  */
 
-public class Project {
+public class Project extends BaseObservable {
+
 
     @SerializedName("id")
     private int id;
+    @Bindable
     @SerializedName("name")
     private String name;
+    @Bindable
     @SerializedName("creation_date")
     private int creation_date;
     @SerializedName("defenses")

@@ -2,6 +2,7 @@ package com.app.episoutenance.dagger.module;
 
 import android.app.Application;
 import android.content.SharedPreferences;
+import android.databinding.ObservableList;
 import android.preference.PreferenceManager;
 
 import com.app.episoutenance.api.EpiSoutenanceApi;
@@ -66,7 +67,7 @@ public class RestModule {
         Type mDefenseType = new TypeToken<Defense>(){}.getType();
         Type mDefenseListType = new TypeToken<ArrayList<Defense>>(){}.getType();
         Type mProjectType = new TypeToken<Project>(){}.getType();
-        Type mProjectListType = new TypeToken<ArrayList<Project>>(){}.getType();
+        Type mProjectListType = new TypeToken<ObservableList<Project>>(){}.getType();
         Type mStudentType = new TypeToken<Student>(){}.getType();
 
         gsonBuilder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);

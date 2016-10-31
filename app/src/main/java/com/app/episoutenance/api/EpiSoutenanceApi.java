@@ -1,5 +1,7 @@
 package com.app.episoutenance.api;
 
+import android.databinding.ObservableList;
+
 import com.app.episoutenance.api.models.Defense;
 import com.app.episoutenance.api.models.Project;
 
@@ -16,7 +18,7 @@ import retrofit2.http.Path;
 public interface EpiSoutenanceApi {
 
     @GET("/project")
-    Call<ArrayList<Project>> getProjectList();
+    Call<ObservableList<Project>> getProjectList();
 
     @GET("/project/{id}")
     Call<Project> getProjectById(@Path("id") int id);

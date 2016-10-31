@@ -1,5 +1,7 @@
 package com.app.episoutenance.ui.adapter;
 
+import android.databinding.ObservableList;
+
 import com.app.episoutenance.BR;
 import com.app.episoutenance.R;
 import com.app.episoutenance.api.models.Project;
@@ -13,27 +15,12 @@ import me.tatarka.bindingcollectionadapter.ItemView;
  */
 
 public class ProjectListModel {
-    private final ArrayList<Project> items;
+    public final ObservableList<Project> items;
 
-    public void setItemView(ItemView itemView) {
-        this.itemView = itemView;
-    }
+    public final ItemView itemView = ItemView.of(BR.project, R.layout.item);
 
-    private ItemView itemView = ItemView.of(BR.project, R.layout.item);
-
-    public ProjectListModel(ArrayList<Project> items) {
+    public ProjectListModel(ObservableList<Project> items) {
         this.items = items;
     }
-
-
-
-    public ArrayList<Project> getItems() {
-        return items;
-    }
-
-    public ItemView getItemview() {
-        return itemView;
-    }
-
 
 }

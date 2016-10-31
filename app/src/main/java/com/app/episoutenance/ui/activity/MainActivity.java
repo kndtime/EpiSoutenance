@@ -1,6 +1,7 @@
 package com.app.episoutenance.ui.activity;
 
 import android.databinding.DataBindingUtil;
+import android.databinding.ObservableList;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -33,11 +34,11 @@ public class MainActivity extends AppCompatActivity {
         Application.getmRestComponent().inject(this);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        Call<ArrayList<Project>> call = retrofit.create(EpiSoutenanceApi.class).getProjectList();
-        call.enqueue(new Callback<ArrayList<Project>>() {
+        Call<ObservableList<Project>> call = retrofit.create(EpiSoutenanceApi.class).getProjectList();
+        call.enqueue(new Callback<ObservableList<Project>>() {
             @Override
-            public void onResponse(Call<ArrayList<Project>> call,
-                                   Response<ArrayList<Project>> response) {
+            public void onResponse(Call<ObservableList<Project>> call,
+                                   Response<ObservableList<Project>> response) {
                 if (!response.isSuccessful())
                     Toast.makeText(MainActivity.this, response.code(), Toast.LENGTH_SHORT).show();
                 ProjectListModel model = new ProjectListModel(response.body());
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ArrayList<Project>> call, Throwable t) {
+            public void onFailure(Call<ObservableList<Project>> call, Throwable t) {
                 Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
